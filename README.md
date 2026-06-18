@@ -4,8 +4,8 @@ A minimal React + TypeScript dashboard for viewing live ESP32 telemetry from the
 
 ## Features
 
-- Device list with selector
-- Live telemetry cards (temperature, humidity, pressure, sensor status, error count, uptime)
+- Device dashboard with cards (temperature, humidity, pressure per device)
+- Click a card to open detailed telemetry (sensor status, errors, uptime)
 - Auto-refresh every 2 seconds
 - Dark theme, responsive card layout
 - Vite dev proxy and Docker/nginx proxy for `/api`
@@ -81,9 +81,10 @@ docker compose down            # stop
 src/
   api/telemetry.ts           # fetchDevices, fetchLatestTelemetry
   components/
-    DeviceSelector.tsx
+    DeviceCard.tsx           # карточка устройства на дашборде
+    DeviceDetail.tsx         # детали по клику
     TelemetryCard.tsx
-  types/telemetry.ts           # DeviceListResponse, Telemetry
+  types/telemetry.ts         # DeviceListResponse, Telemetry
   App.tsx
   App.css
 ```

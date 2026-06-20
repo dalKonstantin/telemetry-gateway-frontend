@@ -10,7 +10,7 @@ async function handleResponse<T>(response: Response): Promise<T> {
 export async function fetchDevices(): Promise<string[]> {
   const response = await fetch('/api/devices');
   const data = await handleResponse<DeviceListResponse>(response);
-  return data.devices;
+  return data.devices ?? [];
 }
 
 export async function fetchLatestTelemetry(deviceId: string): Promise<Telemetry> {
@@ -27,5 +27,6 @@ export async function fetchTelemetryHistory(
   const response = await fetch(
     `/api/devices/${encodeURIComponent(deviceId)}/telemetry?${params.toString()}`,
   );
-  return handleResponse<TelemetryHistory>(response);
+  const data = await handleResponse<TelemetryHistory | null>(response);
+  return data ?? [];
 }

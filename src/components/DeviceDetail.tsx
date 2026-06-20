@@ -76,7 +76,7 @@ export function DeviceDetail({ deviceId, telemetry, loading, error, onClose }: D
         );
         if (cancelled) return;
 
-        const sorted = [...items].sort((a, b) => a.timestamp_unix - b.timestamp_unix);
+        const sorted = [...(items ?? [])].sort((a, b) => a.timestamp_unix - b.timestamp_unix);
         setHistoryData(sorted);
       } catch (loadError) {
         if (cancelled) return;

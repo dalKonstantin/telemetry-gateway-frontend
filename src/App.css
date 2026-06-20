@@ -196,6 +196,206 @@
   cursor: pointer;
 }
 
+.device-detail--wide {
+  max-width: 960px;
+}
+
+.device-detail__tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #2d3139;
+}
+
+.device-detail__tab {
+  padding: 0.5rem 1rem;
+  border: 1px solid #3c4043;
+  border-radius: 8px;
+  background: #1e2128;
+  color: #9aa0a6;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.device-detail__tab:hover {
+  color: #e8eaed;
+  border-color: #4a5568;
+}
+
+.device-detail__tab--active {
+  color: #e8eaed;
+  background: #2d3139;
+  border-color: #5c9eff;
+}
+
+.device-history {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.device-history__range,
+.device-history__count {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #9aa0a6;
+}
+
+.device-history__charts {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.time-range-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.time-range-picker__presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.time-range-picker__preset {
+  padding: 0.45rem 0.85rem;
+  border: 1px solid #3c4043;
+  border-radius: 999px;
+  background: #1e2128;
+  color: #e8eaed;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.time-range-picker__preset:hover {
+  border-color: #5c9eff;
+}
+
+.time-range-picker__preset--active {
+  background: #2d3139;
+  border-color: #5c9eff;
+  color: #5c9eff;
+}
+
+.time-range-picker__custom {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 0.75rem;
+  align-items: end;
+}
+
+.time-range-picker__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  color: #9aa0a6;
+}
+
+.time-range-picker__field input {
+  padding: 0.55rem 0.65rem;
+  border: 1px solid #3c4043;
+  border-radius: 8px;
+  background: #1e2128;
+  color: #e8eaed;
+  font-size: 0.9rem;
+}
+
+.time-range-picker__field input:focus {
+  outline: 2px solid #5c9eff;
+  outline-offset: 2px;
+}
+
+.time-range-picker__apply {
+  padding: 0.55rem 1rem;
+  border: none;
+  border-radius: 8px;
+  background: #5c9eff;
+  color: #121418;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.time-range-picker__apply:hover {
+  background: #7eb3ff;
+}
+
+.time-range-picker__error {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: #f28b82;
+  font-size: 0.85rem;
+}
+
+.telemetry-chart {
+  padding: 1rem;
+  border-radius: 10px;
+  background: #1e2128;
+  border: 1px solid #2d3139;
+}
+
+.telemetry-chart__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.telemetry-chart__header h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.telemetry-chart__unit {
+  font-size: 0.85rem;
+  color: #9aa0a6;
+}
+
+.telemetry-chart__empty {
+  margin: 0;
+  padding: 2rem 0;
+  text-align: center;
+  color: #9aa0a6;
+  font-size: 0.9rem;
+}
+
+.telemetry-chart__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.telemetry-chart__grid {
+  stroke: #2d3139;
+  stroke-width: 1;
+}
+
+.telemetry-chart__line {
+  fill: none;
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.telemetry-chart__area {
+  opacity: 0.15;
+}
+
+.telemetry-chart__axis-label {
+  fill: #9aa0a6;
+  font-size: 11px;
+}
+
+.telemetry-chart__axis-label--x {
+  font-size: 10px;
+}
+
 .device-detail__close:hover {
   background: #3c4043;
 }
@@ -264,5 +464,13 @@
 
   .device-detail-backdrop {
     padding: 1rem;
+  }
+
+  .time-range-picker__custom {
+    grid-template-columns: 1fr;
+  }
+
+  .device-detail--wide {
+    max-width: 100%;
   }
 }

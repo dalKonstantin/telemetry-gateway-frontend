@@ -1,4 +1,4 @@
-import type { DeviceListResponse, Telemetry } from '../types/telemetry';
+import type { DeviceListResponse, Telemetry, TelemetryHistory } from '../types/telemetry';
 
 async function handleResponse<T>(response: Response): Promise<T> {
   if (!response.ok) {
@@ -16,4 +16,16 @@ export async function fetchDevices(): Promise<string[]> {
 export async function fetchLatestTelemetry(deviceId: string): Promise<Telemetry> {
   const response = await fetch(`/api/devices/${encodeURIComponent(deviceId)}/telemetry/latest`);
   return handleResponse<Telemetry>(response);
+}
+
+export async function fetchTelemetryHistory(
+  deviceId: string,
+  from: string,
+  to: string,
+): Promise<TelemetryHistory> {
+  const params = new URLSearchParams({ from, to });
+  const response = await fetch(
+    `/api/devices/${encodeURIComponent(deviceId)}/telemetry?${params.toString()}`,
+  );
+  return handleResponse<TelemetryHistory>(response);
 }

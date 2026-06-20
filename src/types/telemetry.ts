@@ -11,5 +11,7 @@ export interface Telemetry {
   uptime_ms: number;
   sensor_ok: boolean;
   error_count: number;
-  received_at: string;
+  received_at?: string;
 }
+
+export type TelemetryHistory = Telemetry[];
